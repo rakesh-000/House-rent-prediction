@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>House Details</title>
+</head>
+<style>
+        body {
+      background: linear-gradient(to bottom, #4ebbff, #23bbc9);
+      color: #fff;
+      font-family: Arial, sans-serif;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    form {
+      max-width: 400px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: rgba(0, 0, 0, 0.5);
+      border-radius: 8px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+
+    input[type="text"],
+    input[type="number"],
+    select {
+      width: 100%;
+      padding: 8px;
+      border-radius: 4px;
+      border: none;
+      margin-bottom: 10px;
+    }
+
+    input[type="submit"] {
+      background-color: #2354c9;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    input[type="submit"]:hover {
+      background-color: #1b43a1;
+    }
+
+</style>
+<body>
+  <h1>House Details</h1>
+  
+  <form>
+    <label for="postedOn">Posted On:</label>
+    <input type="date" id="postedOn" name="postedOn" required><br><br>
+
+    <label for="bhk">BHK:</label>
+    <input type="number" id="bhk" name="bhk" min="1" required><br><br>
+
+    <label for="rent">Rent:</label>
+    <input type="number" id="rent" name="rent" required><br><br>
+
+    <label for="size">Size:</label>
+    <input type="text" id="size" name="size" required><br><br>
+
+    <label for="floor">Floor:</label>
+    <input type="number" id="floor" name="floor" required><br><br>
+
+    <label for="areaType">Area Type:</label>
+    <input type="radio" id="Super Area" name="areaType" value="Super Area" required>
+    <label for="Super Area">Super Area</label><br>
+    <input type="radio" id="Carpet Area" name="areaType" value="Carpet Area">
+    <label for="Carpet Area">Carpet Area</label><br>
+    <input type="radio" id="Build Area" name="areaType" value="Build Area">
+    <label for="Build Area">Build Area</label><br><br>
+
+    <label for="locality">Locality:</label>
+    <input type="text" id="locality" name="locality" required><br><br>
+
+    <label for="city">City:</label>
+    <select id="city" name="city" required>
+      <option value="">Select</option>
+      <option value="Chennai">Chennai</option>
+      <option value="Mumbai">Mumbai</option>
+      <option value="Bangalore">Bangalore</option>
+      <option value="Hyderabad">Hyderabad</option>
+      <option value="Delhi">Delhi</option>
+      <option value="Kolkata">Kolkata</option>
+    </select><br><br>
+
+    <label for="furnishingStatus">Furnishing Status:</label>
+    <select id="furnishingStatus" name="furnishingStatus" required>
+      <option value="">Select</option>
+      <option value="furnished">Furnished</option>
+      <option value="unfurnished">Unfurnished</option>
+      <option value="semi-furnished">Semi-Furnished</option>
+    </select><br><br>
+
+    <label for="tenantPreferred">Tenant Preferred:</label><br>
+    <input type="radio" id="tenantBachelors/Family" name="tenantPreferred" value="tenantBachelors/family" required>
+    <label for="tenantBachelors/Family">Bachelors/Family</label><br>
+    <input type="radio" id="tenantFamily" name="tenantPreferred" value="family">
+    <label for="tenantFamily">Family</label><br>
+    <input type="radio" id="tenantBachelors" name="tenantPreferred" value="tenantBachelors">
+    <label for="tenantBachelors">Bachelors</label><br><br>
+
+    <label for="bathroom">Bathroom:</label>
+    <input type="number" id="bathroom" name="bathroom" min="1" required><br><br>
+
+    <label for="pointOfContact">Point of Contact:</label>
+    <input type="text" id="pointOfContact" name="pointOfContact" required><br><br>
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>
+
+
+
+
+
+

@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Rent Prediction</title>
+</head>
+<body>
+    <h1>Enter House Details to Predict Rent</h1>
+    <form  action=/house method="post">
+        <label for="bhk">Number of BHK:</label>
+        <input type="number" id="bhk" name="bhk" required><br>
+
+        <label for="size">Size of the House:</label>
+        <input type="number" id="size" name="size" required><br>
+
+        <label for="area-type">Area Type:</label>
+        <select id="area-type" name="area-type" required>
+            <option value="1">Super Area</option>
+            <option value="2">Carpet Area</option>
+            <option value="3">Built Area</option>
+        </select><br>
+
+        <label for="pin-code">Pin Code of the City:</label>
+        <input type="number" id="pin-code" name="pin-code" required><br>
+
+        <label for="furnishing">Furnishing Status of the House:</label>
+        <select id="furnishing" name="furnishing" required>
+            <option value="0">Unfurnished</option>
+            <option value="1">Semi-Furnished</option>
+            <option value="2">Furnished</option>
+        </select><br>
+
+        <label for="tenant-type">Tenant Type:</label>
+        <select id="tenant-type" name="tenant-type" required>
+            <option value="1">Bachelors</option>
+            <option value="2">Bachelors/Family</option>
+            <option value="3">Only Family</option>
+        </select><br>
+
+        <label for="bathrooms">Number of Bathrooms:</label>
+        <input type="number" id="bathrooms" name="bathrooms" required><br>
+
+        <input type="submit" value="Predict Rent" onsubmit="">
+    </form>
+    <style>
+        /* style.css */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: #333333;
+}
+
+form {
+    margin-top: 20px;
+    background-color: #ffffff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+input[type="number"],
+select {
+    width: 200px;
+    padding: 5px;
+    border-radius: 3px;
+    border: 1px solid #cccccc;
+}
+
+input[type="submit"] {
+    padding: 10px 20px;
+    background-color: #4caf50;
+    color: #ffffff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #45a049;
+}
+
+    </style>
+</body>
+</html>

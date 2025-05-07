@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Solar System - Top View</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+        }
+        canvas {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+    <script>
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.body.appendChild(renderer.domElement);
+
+        const sunGeometry = new THREE.SphereGeometry(2, 32, 32);
+        const sunMaterial = new THREE.MeshBasicMaterial({ color: 0xffff00 });
+        const sun = new THREE.Mesh(sunGeometry, sunMaterial);
+        scene.add(sun);
+
+        const planets = [];
+
+        function createPlanet(radius, distance, color, speed) {
+            const planetGeometry = new THREE.SphereGeometry(radius, 32, 32);
+            const planetMaterial = new THREE.MeshBasicMaterial({ color });
+            const planet = new THREE.Mesh(planetGeometry, planetMaterial);
+            planet.distance = distance;
+            planet.speed = speed;
+            planets.push(planet);
+            scene.add(planet);
+        }
+
+        createPlanet(0.3, 6, 0xffffff, 0.03); // Mercury
+        createPlanet(0.7, 9, 0xffa500, 0.02); // Venus
+        createPlanet(0.7, 12, 0xff6347, 0.01); // Mars
+        createPlanet(0.8, 18, 0x4682b4, 0.005); // Jupiter
+        createPlanet(0.6, 26, 0xffd700, 0.003); // Saturn
+        createPlanet(0.5, 32, 0xafeeee, 0.002); // Uranus
+        createPlanet(0.5, 38, 0x4682b4, 0.001); // Neptune
+
+        camera.position.set(0, 50, 0);
+        camera.lookAt(0, 0, 0);
+
+        function animate() {
+            requestAnimationFrame(animate);
+            planets.forEach(planet => {
+                planet.position.x = planet.distance * Math.cos(planet.speed * Date.now() * 0.001);
+                planet.position.z = planet.distance * Math.sin(planet.speed * Date.now() * 0.001);
+            });
+            renderer.render(scene, camera);
+        }
+
+        animate();
+    </script>
+</body>
+</html>

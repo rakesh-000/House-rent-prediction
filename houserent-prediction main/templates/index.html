@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Rental Page</title>
+</head>
+<style>
+body {
+  background: linear-gradient(to bottom, #2980b9, #6dd5fa);
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+}
+
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  background: linear-gradient(#2980b9,#6dd5fa);
+  padding: 20px;
+  height: 100vh;
+}
+
+.navbar-brand {
+  color: #fff;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.navbar-links {
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar-links a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.navbar-right {
+  display: flex;
+  align-items: flex-start;
+  margin-left: auto;
+  position: absolute;
+  right:10px
+}
+
+.navbar-right form {
+  margin: 0;
+}
+
+.navbar-right label {
+  margin-right: 10px;
+  color: #fff;
+}
+
+.navbar-right input[type="text"],
+.navbar-right input[type="password"] {
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  width: 150px;
+}
+
+.navbar-right button[type="submit"] {
+  background-color: #fff;
+  color: #2980b9;
+  padding: 5px 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+
+.rent-prediction {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  text-align: center;
+  margin: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+}
+
+.rent-prediction h2 {
+  color: #2980b9;
+}
+
+.rent-prediction form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.rent-prediction label {
+  margin-top: 10px;
+  color: #2980b9;
+}
+
+.rent-prediction input,
+.rent-prediction select {
+  padding: 5px;
+  border: none;
+  border-radius: 5px;
+  width: 200px;
+}
+
+.rent-prediction button[type="submit"] {
+  margin-top: 20px;
+  background-color: #2980b9;
+  color: #fff;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.rent-prediction button[type="submit"]:hover {
+  background-color: #1a5276;
+}
+
+.rent-prediction .message {
+  margin-top: 20px;
+  color: #2980b9;
+}
+</style>
+
+<body>
+  <div class="navbar">
+    <div class="navbar-brand" onclick="navigateToHome()">House Rental Page</div>
+    <div class="navbar-right">
+      <form action="/connection" method="POST">
+          <label for="username">Username:</label>
+          <input type="text" name="username" id="username" required>
+
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password" required>
+
+          <button type="submit"><a href="#" onclick="connection()">login</a></button>
+      </form>
+  </div>
+  
+    <div class="navbar-links">
+        <a href="#" onclick="navigateToHome()">Home</a>
+        <a href="#" onclick="navigateToAbout()">About</a>
+        <a href="#" onclick="navigateToContact()">Contact Us</a>
+        <a href="#" onclick="navigateToRentPrediction()">Rent Prediction</a>
+    </div>    
+    <div class="rent-prediction">
+      <h2>Rent Prediction</h2>
+      {% if predicted_price is defined %}
+          <div class="predicted-price">
+              <p>Predicted Rent: {{ predicted_price }}</p>
+          </div>
+      {% endif %}
+  </div>
+</div>
+
+
+
+
+    <script>
+      function navigateToHome() {
+          window.location.href = "/index";
+      }
+
+      function navigateToAbout() {
+          // Add your About page URL here
+          window.location.href = "/about" ;
+      }
+
+      function navigateToContact() {
+          // Add your Contact Us page URL here
+          window.location.href = "/contact";
+      }
+      function connection() {
+          // Add your Contact Us page URL here
+          window.location.href = "/connection";
+      }
+      function navigateToRentPrediction() {
+          window.location.href = "/prediction";
+      }
+    </script>
+</body>
+</html>

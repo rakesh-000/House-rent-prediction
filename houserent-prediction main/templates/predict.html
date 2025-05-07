@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>House Rental Page</title>
+</head>
+<style>
+/* CSS Styles */
+body {
+    background: linear-gradient(to bottom, #2980b9, #6dd5fa);
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .rent-prediction {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin: 10px;
+  }
+  
+  .rent-prediction h2 {
+    color: #2980b9;
+  }
+  
+  .rent-prediction form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .rent-prediction label {
+    margin-top: 10px;
+    color: #2980b9;
+  }
+  
+  .rent-prediction input,
+  .rent-prediction select {
+    padding: 5px;
+    border: none;
+    border-radius: 5px;
+    width: 200px;
+  }
+  
+  .rent-prediction button[type="submit"] {
+    margin-top: 20px;
+    background-color: #2980b9;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .rent-prediction button[type="submit"]:hover {
+    background-color: #1a5276;
+  }
+  
+  .rent-prediction .message {
+    margin-top: 20px;
+    color: #2980b9;
+  }
+</style>
+
+<body>
+    <div class="container">
+        <div class="rent-prediction">
+            <h2>Rent Prediction</h2>
+            
+            <form action="/" method="POST">
+                <!-- Input fields for rent prediction -->
+                <label for="bhk">Number of BHK:</label>
+                <input type="number" id="bhk" name="bhk" required><br>
+
+                <label for="size">Size of the House:</label>
+                <input type="number" id="size" name="size" required><br>
+
+                <label for="area_type">Area Type:</label>
+                <select id="area_type" name="area_type" required>
+                    <option value="1">Super Area</option>
+                    <option value="2">Carpet Area</option>
+                    <option value="3">Built Area</option>
+                </select><br>
+
+                <label for="pincode">Pin Code of the City:</label>
+                <input type="number" id="pincode" name="pincode" required><br>
+
+                <label for="furnishing">Furnishing Status of the House:</label>
+                <select id="furnishing" name="furnishing" required>
+                    <option value="0">Unfurnished</option>
+                    <option value="1">Semi-Furnished</option>
+                    <option value="2">Furnished</option>
+                </select><br>
+
+                <label for="tenant_type">Tenant Type:</label>
+                <select id="tenant_type" name="tenant_type" required>
+                    <option value="1">Bachelors</option>
+                    <option value="2">Bachelors/Family</option>
+                    <option value="3">Only Family</option>
+                </select><br>
+
+                <label for="bathrooms">Number of Bathrooms:</label>
+                <input type="number" id="bathrooms" name="bathrooms" required><br>
+                <input type="submit" value="Predict Rent">
+              
+                {% if predicted_price is not none %}
+                <p>Predicted Rent: {{ predicted_price }}</p>
+                {% endif %}
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
+
